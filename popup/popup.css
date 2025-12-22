@@ -207,7 +207,11 @@ body {
 
 .icon-pause {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 2px;
+  width: 16px;
+  height: 16px;
 }
 
 .icon-pause::before,

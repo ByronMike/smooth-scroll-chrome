@@ -66,9 +66,9 @@
           <div class="ssc-slider-container">
             <div class="ssc-slider-label">
               <span>Speed</span>
-              <span class="ssc-speed-value">0.5x</span>
+              <span class="ssc-speed-value">0.4x</span>
             </div>
-            <input type="range" class="ssc-slider" min="0.1" max="1" step="0.1" value="0.5">
+            <input type="range" class="ssc-slider" min="0.1" max="1" step="0.1" value="0.4">
           </div>
           <button class="ssc-select-btn" title="Select scrollable element">
             <span class="ssc-icon ssc-icon-target"></span>
@@ -173,6 +173,7 @@
 
     // Speed preset buttons
     const speedBtns = widgetElement.querySelectorAll('.ssc-speed-btn');
+    const presetMultipliers = { slow: 0.2, medium: 0.4, fast: 0.6 };
     speedBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const speed = btn.dataset.speed;
@@ -183,10 +184,8 @@
         speedBtns.forEach(b => b.classList.remove('ssc-active'));
         btn.classList.add('ssc-active');
 
-        // Update slider
-        const multiplier = window.SmoothScrollChrome.SPEED_PRESETS[speed] /
-                          window.SmoothScrollChrome.SPEED_PRESETS.medium;
-        updateSlider(multiplier);
+        // Update slider with preset value
+        updateSlider(presetMultipliers[speed]);
       });
     });
 

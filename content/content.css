@@ -309,14 +309,18 @@
 
 .ssc-icon-pause {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 3px;
+  width: 20px;
+  height: 20px;
 }
 
 .ssc-icon-pause::before,
 .ssc-icon-pause::after {
   content: '';
   width: 5px;
-  height: 16px;
+  height: 14px;
   background: currentColor;
   border-radius: 1px;
 }
