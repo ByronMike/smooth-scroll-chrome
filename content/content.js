@@ -7,16 +7,16 @@
   // Scroll state
   let isScrolling = false;
   let isPaused = false;
-  let scrollSpeed = 0.8; // pixels per frame (medium speed)
+  let scrollSpeed = 0.4; // pixels per frame (medium speed)
   let animationFrameId = null;
   let targetElement = null; // null means scroll the whole page
   let accumulatedScroll = 0; // accumulate fractional pixels
 
   // Speed presets (pixels per frame at 60fps)
   const SPEED_PRESETS = {
-    slow: 0.4,
-    medium: 0.8,
-    fast: 1.2
+    slow: 0.2,
+    medium: 0.4,
+    fast: 0.6
   };
 
   // Speed multiplier range
