@@ -7,20 +7,20 @@
   // Scroll state
   let isScrolling = false;
   let isPaused = false;
-  let scrollSpeed = 2; // pixels per frame (medium speed)
+  let scrollSpeed = 0.8; // pixels per frame (medium speed)
   let animationFrameId = null;
   let targetElement = null; // null means scroll the whole page
 
   // Speed presets (pixels per frame at 60fps)
   const SPEED_PRESETS = {
-    slow: 1,
-    medium: 2,
-    fast: 4
+    slow: 0.4,
+    medium: 0.8,
+    fast: 1.2
   };
 
   // Speed multiplier range
   const MIN_SPEED_MULTIPLIER = 0.1;
-  const MAX_SPEED_MULTIPLIER = 2;
+  const MAX_SPEED_MULTIPLIER = 1;
 
   /**
    * Check if an element is scrollable

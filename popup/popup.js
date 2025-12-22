@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
 
       // Update slider based on preset
-      const multipliers = { slow: 0.5, medium: 1, fast: 2 };
+      const multipliers = { slow: 0.2, medium: 0.4, fast: 0.6 };
       speedSlider.value = multipliers[speed];
       speedValue.textContent = multipliers[speed].toFixed(1) + 'x';
     });

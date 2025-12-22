@@ -66,9 +66,9 @@
           <div class="ssc-slider-container">
             <div class="ssc-slider-label">
               <span>Speed</span>
-              <span class="ssc-speed-value">1.0x</span>
+              <span class="ssc-speed-value">0.5x</span>
             </div>
-            <input type="range" class="ssc-slider" min="0.1" max="2" step="0.1" value="1">
+            <input type="range" class="ssc-slider" min="0.1" max="1" step="0.1" value="0.5">
           </div>
           <button class="ssc-select-btn" title="Select scrollable element">
             <span class="ssc-icon ssc-icon-target"></span>
