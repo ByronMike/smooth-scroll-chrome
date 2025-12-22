@@ -10,6 +10,7 @@
   let scrollSpeed = 0.8; // pixels per frame (medium speed)
   let animationFrameId = null;
   let targetElement = null; // null means scroll the whole page
+  let accumulatedScroll = 0; // accumulate fractional pixels
 
   // Speed presets (pixels per frame at 60fps)
   const SPEED_PRESETS = {
@@ -116,17 +117,25 @@
       return;
     }
 
-    // Perform the scroll
-    if (targetElement) {
-      targetElement.scrollBy({
-        top: scrollSpeed,
-        behavior: 'instant'
-      });
-    } else {
-      window.scrollBy({
-        top: scrollSpeed,
-        behavior: 'instant'
-      });
+    // Accumulate fractional pixels and only scroll when >= 1 pixel
+    accumulatedScroll += scrollSpeed;
+
+    if (accumulatedScroll >= 1) {
+      const pixelsToScroll = Math.floor(accumulatedScroll);
+      accumulatedScroll -= pixelsToScroll;
+
+      // Perform the scroll
+      if (targetElement) {
+        targetElement.scrollBy({
+          top: pixelsToScroll,
+          behavior: 'instant'
+        });
+      } else {
+        window.scrollBy({
+          top: pixelsToScroll,
+          behavior: 'instant'
+        });
+      }
     }
 
     // Schedule next frame
@@ -144,6 +153,7 @@
     targetElement = element;
     isScrolling = true;
     isPaused = false;
+    accumulatedScroll = 0; // Reset accumulator
 
     animationFrameId = requestAnimationFrame(scrollStep);
     window.dispatchEvent(new CustomEvent('smoothscroll:started'));

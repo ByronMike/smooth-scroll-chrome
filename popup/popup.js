@@ -14,16 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     isPaused: false
   };
 
-  // Get current tab and state
-  async function getCurrentTab() {
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    return tab;
-  }
+  // Store the tab ID when popup opens (will be set in init)
+  let targetTabId = null;
 
   async function sendMessage(action, data = {}) {
     try {
-      const tab = await getCurrentTab();
-      return await chrome.tabs.sendMessage(tab.id, { action, ...data });
+      if (!targetTabId) {
+        throw new Error('No target tab');
+      }
+      return await chrome.tabs.sendMessage(targetTabId, { action, ...data });
     } catch (error) {
       console.error('Failed to send message:', error);
       updateStatus('Error: Reload page', 'error');
@@ -69,8 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     statusEl.className = 'status' + (className ? ' ' + className : '');
   }
 
-  // Initialize
+  // Initialize - capture the tab ID when popup opens
   async function init() {
+    // Get and store the current tab ID at popup open time
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    targetTabId = tab.id;
+
     const state = await sendMessage('getState');
     if (state) {
       updateUI(state);
