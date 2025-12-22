@@ -1,0 +1,395 @@
+/* Smooth Scroll Chrome - Floating Widget Styles */
+
+/* Widget Container */
+.ssc-widget {
+  position: fixed;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 14px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ssc-widget * {
+  box-sizing: border-box;
+}
+
+/* Main Widget Panel */
+.ssc-panel {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+/* Widget Header - Draggable */
+.ssc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: move;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ssc-title {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a8b2d1;
+}
+
+.ssc-minimize-btn {
+  background: none;
+  border: none;
+  color: #a8b2d1;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ssc-minimize-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Widget Body */
+.ssc-body {
+  padding: 12px;
+}
+
+/* Playback Controls */
+.ssc-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.ssc-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ssc-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.ssc-btn:active {
+  transform: scale(0.95);
+}
+
+.ssc-btn-play {
+  background: linear-gradient(135deg, #00d9ff 0%, #0077ff 100%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.ssc-btn-play:hover {
+  background: linear-gradient(135deg, #33e0ff 0%, #3399ff 100%);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+}
+
+.ssc-btn-play.ssc-playing {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff3366 100%);
+}
+
+.ssc-btn-play.ssc-playing:hover {
+  background: linear-gradient(135deg, #ff8585 0%, #ff5580 100%);
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+}
+
+.ssc-btn-stop {
+  width: 40px;
+  height: 40px;
+}
+
+/* Speed Presets */
+.ssc-speed-presets {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.ssc-speed-btn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a8b2d1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ssc-speed-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.ssc-speed-btn.ssc-active {
+  background: linear-gradient(135deg, #00d9ff 0%, #0077ff 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* Speed Slider */
+.ssc-slider-container {
+  margin-bottom: 12px;
+}
+
+.ssc-slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #a8b2d1;
+  margin-bottom: 6px;
+}
+
+.ssc-speed-value {
+  color: #00d9ff;
+  font-weight: 600;
+}
+
+.ssc-slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+}
+
+.ssc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #00d9ff 0%, #0077ff 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.ssc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.ssc-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #00d9ff 0%, #0077ff 100%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Element Selector Button */
+.ssc-select-btn {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: #a8b2d1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ssc-select-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.ssc-select-btn.ssc-selecting {
+  background: rgba(0, 217, 255, 0.2);
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+.ssc-target-label {
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Minimized State */
+.ssc-widget.ssc-minimized .ssc-body {
+  display: none;
+}
+
+.ssc-widget.ssc-minimized .ssc-panel {
+  min-width: auto;
+}
+
+/* Element Selection Overlay */
+.ssc-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2147483646;
+  cursor: crosshair;
+}
+
+.ssc-highlight {
+  position: absolute;
+  border: 3px solid #00d9ff;
+  background: rgba(0, 217, 255, 0.1);
+  pointer-events: none;
+  z-index: 2147483646;
+  border-radius: 4px;
+  transition: all 0.1s ease-out;
+}
+
+.ssc-highlight::after {
+  content: 'Click to select';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00d9ff;
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Icons (using CSS shapes) */
+.ssc-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.ssc-icon-play {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent currentColor;
+  margin-left: 3px;
+}
+
+.ssc-icon-pause {
+  display: flex;
+  gap: 3px;
+}
+
+.ssc-icon-pause::before,
+.ssc-icon-pause::after {
+  content: '';
+  width: 5px;
+  height: 16px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.ssc-icon-stop {
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.ssc-icon-minimize {
+  width: 12px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.ssc-icon-expand {
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.ssc-icon-target {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  position: relative;
+}
+
+.ssc-icon-target::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+/* Animation for scrolling state indicator */
+@keyframes ssc-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.ssc-scrolling-indicator {
+  animation: ssc-pulse 1s ease-in-out infinite;
+}
+
+/* Status indicator */
+.ssc-status {
+  font-size: 10px;
+  text-align: center;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  color: #a8b2d1;
+}
+
+.ssc-status.ssc-status-scrolling {
+  color: #00d9ff;
+}
+
+.ssc-status.ssc-status-paused {
+  color: #ffc107;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Scroll Chrome</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <div class="header">
+      <h1>Smooth Scroll</h1>
+      <span class="version">v1.0</span>
+    </div>
+
+    <div class="section">
+      <div class="controls">
+        <button id="toggleBtn" class="btn btn-primary" title="Start/Stop scrolling">
+          <span class="icon icon-play"></span>
+          <span class="btn-text">Start</span>
+        </button>
+        <button id="resetBtn" class="btn btn-secondary" title="Reset to top">
+          <span class="icon icon-reset"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="speed-presets">
+        <button class="speed-btn" data-speed="slow">Slow</button>
+        <button class="speed-btn active" data-speed="medium">Medium</button>
+        <button class="speed-btn" data-speed="fast">Fast</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="slider-label">
+        <span>Speed</span>
+        <span id="speedValue" class="speed-value">1.0x</span>
+      </label>
+      <input type="range" id="speedSlider" class="slider" min="0.5" max="5" step="0.1" value="1">
+    </div>
+
+    <div class="section">
+      <button id="toggleWidget" class="btn btn-outline btn-full">
+        <span class="icon icon-widget"></span>
+        Toggle Widget
+      </button>
+    </div>
+
+    <div class="footer">
+      <span id="status" class="status">Ready</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
