@@ -68,7 +68,7 @@
               <span>Speed</span>
               <span class="ssc-speed-value">1.0x</span>
             </div>
-            <input type="range" class="ssc-slider" min="0.5" max="5" step="0.1" value="1">
+            <input type="range" class="ssc-slider" min="0.1" max="2" step="0.1" value="1">
           </div>
           <button class="ssc-select-btn" title="Select scrollable element">
             <span class="ssc-icon ssc-icon-target"></span>
@@ -338,21 +338,36 @@
     // Track hovered element
     let hoveredElement = null;
 
-    overlay.addEventListener('mousemove', (e) => {
-      const target = document.elementFromPoint(e.clientX, e.clientY);
-      if (target === overlay || target === highlight) return;
+    // Function to get element under cursor by temporarily hiding overlay
+    function getElementUnderCursor(x, y) {
+      overlay.style.pointerEvents = 'none';
+      highlight.style.pointerEvents = 'none';
+      const target = document.elementFromPoint(x, y);
+      overlay.style.pointerEvents = 'auto';
+      highlight.style.pointerEvents = 'auto';
+      return target;
+    }
 
-      // Find the nearest scrollable ancestor
-      let scrollable = null;
+    // Function to find scrollable element from a target
+    function findScrollableFromTarget(target) {
+      if (!target) return null;
+
       let el = target;
-
-      while (el && el !== document.body) {
+      while (el && el !== document.body && el !== document.documentElement) {
         if (window.SmoothScrollChrome.isScrollable(el)) {
-          scrollable = el;
-          break;
+          return el;
         }
         el = el.parentElement;
       }
+      return null;
+    }
+
+    overlay.addEventListener('mousemove', (e) => {
+      const target = getElementUnderCursor(e.clientX, e.clientY);
+      if (!target) return;
+
+      // Find the nearest scrollable ancestor
+      const scrollable = findScrollableFromTarget(target);
 
       if (scrollable && scrollable !== hoveredElement) {
         hoveredElement = scrollable;
@@ -372,8 +387,12 @@
       e.preventDefault();
       e.stopPropagation();
 
-      if (hoveredElement) {
-        window.SmoothScrollChrome.setTargetElement(hoveredElement);
+      // Get the element under cursor at click time
+      const target = getElementUnderCursor(e.clientX, e.clientY);
+      const scrollable = findScrollableFromTarget(target);
+
+      if (scrollable) {
+        window.SmoothScrollChrome.setTargetElement(scrollable);
       } else {
         // Select whole page
         window.SmoothScrollChrome.setTargetElement(null);

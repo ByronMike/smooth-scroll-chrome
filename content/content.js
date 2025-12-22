@@ -19,8 +19,8 @@
   };
 
   // Speed multiplier range
-  const MIN_SPEED_MULTIPLIER = 0.5;
-  const MAX_SPEED_MULTIPLIER = 5;
+  const MIN_SPEED_MULTIPLIER = 0.1;
+  const MAX_SPEED_MULTIPLIER = 2;
 
   /**
    * Check if an element is scrollable
@@ -232,7 +232,7 @@
   }
 
   /**
-   * Set scroll speed using a multiplier (0.5 to 5)
+   * Set scroll speed using a multiplier (0.1 to 5)
    */
   function setSpeedMultiplier(multiplier) {
     multiplier = Math.max(MIN_SPEED_MULTIPLIER, Math.min(MAX_SPEED_MULTIPLIER, multiplier));
