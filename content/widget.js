@@ -113,7 +113,7 @@
     let startRight, startBottom;
 
     header.addEventListener('mousedown', (e) => {
-      if (e.target.closest('.ssc-minimize-btn')) return;
+      if (e.target.closest('.ssc-minimize-btn') || e.target.closest('.ssc-close-btn')) return;
 
       isDragging = true;
       startX = e.clientX;
