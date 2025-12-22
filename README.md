@@ -1,6 +1,6 @@
 # Smooth Scroll Chrome
 
-A Chrome extension for automatically scrolling song lyrics, music partitions, and any scrollable content at adjustable speeds. Perfect for musicians who need hands-free scrolling while playing.
+A Chrome extension for automatically scrolling any webpage or embedded element at adjustable speeds. Perfect for hands-free reading of lyrics, music partitions, articles, documentation, long pages, and more.
 
 ## Features
 
@@ -129,5 +129,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Built for musicians who need hands-free scrolling
-- Inspired by the need to read music partitions and lyrics while playing
+- Built for anyone who needs hands-free scrolling
+- Great for reading lyrics, music partitions, articles, documentation, and any long content

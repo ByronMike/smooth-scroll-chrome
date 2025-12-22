@@ -45,9 +45,14 @@
       <div class="ssc-panel">
         <div class="ssc-header">
           <span class="ssc-title">Auto Scroll</span>
-          <button class="ssc-minimize-btn" title="Minimize">
-            <span class="ssc-icon ssc-icon-minimize"></span>
-          </button>
+          <div class="ssc-header-buttons">
+            <button class="ssc-minimize-btn" title="Minimize">
+              <span class="ssc-icon ssc-icon-minimize"></span>
+            </button>
+            <button class="ssc-close-btn" title="Close">
+              <span class="ssc-icon ssc-icon-close"></span>
+            </button>
+          </div>
         </div>
         <div class="ssc-body">
           <div class="ssc-controls">
@@ -157,6 +162,15 @@
 
       const icon = minimizeBtn.querySelector('.ssc-icon');
       icon.className = isMinimized ? 'ssc-icon ssc-icon-expand' : 'ssc-icon ssc-icon-minimize';
+    });
+
+    // Close button
+    const closeBtn = widgetElement.querySelector('.ssc-close-btn');
+    closeBtn.addEventListener('click', () => {
+      // Stop scrolling if active
+      window.SmoothScrollChrome.stop();
+      // Hide the widget
+      hideWidget();
     });
 
     // Play/Pause button
