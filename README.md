@@ -131,3 +131,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built for anyone who needs hands-free scrolling
 - Great for reading lyrics, music partitions, articles, documentation, and any long content
+
